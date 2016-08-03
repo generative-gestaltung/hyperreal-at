@@ -2,15 +2,19 @@
 <html>
  <meta charset="UTF-8">
 
-  <body id="body" style="background-color:black">
+  <body id="body">
     <!--<div id="fps" style="color:white">0</div>-->
     <canvas id="myCanvas" width="1200" height="700"></canvas>
     <script src="gg_utils.js"></script>
     <script src="gg_animation.js"></script>
     <script src="displaySprites.js"></script>
+    <script src="displayTextRender.js"></script>
     <script src="displayLed.js"></script>
     <script src="data.js"></script>
-    
+    <link rel="stylesheet" type="text/css"
+              href="https://fonts.googleapis.com/css?family=Roboto+Mono:Light">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <div id="txtContainer" style="color:white"></div>
     <script>
 
     // get the context
@@ -18,7 +22,7 @@
     var body = document.getElementById("body");
     var audio = new Audio("hyperreal_site.mp3");
     audio.loop = true;
-    audio.play();
+    //audio.play();
 
 
     var pad = function (n) {
@@ -31,40 +35,32 @@
     }
 
     body.onmousemove = function (evt) {
-        /*
-        for (var i=0; i<particle_data.length; i++) {
-
-            if (particle_data[i].click == "") continue;
-            if (collide (evt.clientX, evt.clientY, 
-                         display_sprites.sprites[i].pos.x,
-                         display_sprites.sprites[i].pos.y,
-                         display_sprites.sprites[i].size,
-                         display_sprites.sprites[i].size)) {
-                display_sprites.sprites[i].highlight();
-
-            }
-        }
-        */
     }
 
     var start_shards = 10000000;
 
     body.onclick = function (evt) {
 
-        for (var i=0; i<display_sprites.sprites.length; i++) {
+        startFrame = frameCount;
+        for (var i=0; i<display_sprites.N.length; i++) {
             particle_data[i].move = true;
         }
+
         start_shards = frameCount;
         for (var i=0; i<particle_data.length; i++) {
             if (particle_data[i].click == "") continue;
             if (collide (evt.clientX, evt.clientY, 
-                                                         display_sprites.sprites[i].pos.x,
-                                                         display_sprites.sprites[i].pos.y,
-                                                         display_sprites.sprites[i].size,
-                                                         display_sprites.sprites[i].size)) {
-                //console.log(particle_data[i].click);
+                         display_sprites.getData(i).pos.x,
+                         display_sprites.getData(i).pos.y,
+                         display_sprites.getData(i).size,
+                         display_sprites.getData(i).size)) {        
             }
         }
+
+        currentText = 0;
+        currentChar = 0;
+        currentTextData = text_animation_2;
+        display_sprites.hitReset(); 
     }
 
 
@@ -73,6 +69,7 @@
  	var frameCount = 0;
     var currentText = 0;
     var currentChar = 0;
+    var currentTextData = text_animation;
     var escape = '!';
     var reset = '#';
     var background_animation;
@@ -98,10 +95,10 @@
 
     var init = function() {
         
-        //bg_image.src = "jpg2/img001.jpg";
-        canvas.onclick = "alert();"
 
-        display_sprites = new Display_Sprites();
+        //display_sprites = new Display_Sprites();
+        display_sprites = new Display_Text_Renderer();
+
 
         background_animation = new Animation();
         background_animation.addKeyFrame (0, [0,0,0]);
@@ -136,17 +133,20 @@
     }
 
     var speed = 1;
+    var startFrame = -1;
+
     var moveChars = function() {
 
-        return;
-        for (var i=0; i<display_sprites.sprites.length; i++) {
+        if (startFrame==-1) return;
+
+        for (var i=0; i<display_sprites.N; i++) {
 
 
             if (particle_data[i].click != "" && frameCount%25<3) {
                 display_sprites.sprites[i].highlight();
             }
 
-            if (frameCount<(870+particle_data[i].d*2))
+            if (frameCount<(startFrame+particle_data[i].d*2))
                 continue;
 
             if (!particle_data[i].move) continue;
@@ -154,11 +154,14 @@
             particle_data[i].v.x += particle_data[i].f.x;
             particle_data[i].v.y += particle_data[i].f.y;
 
-            display_sprites.sprites[i].pos.x += particle_data[i].v.x;
-            display_sprites.sprites[i].pos.y += particle_data[i].v.y;
+            var nextPos = display_sprites.getPos(i);
+            nextPos.x += particle_data[i].v.x;
+            nextPos.y += particle_data[i].v.y;
 
-            if (display_sprites.sprites[i].pos.y > 1700)
-                display_sprites.sprites[i].pos.y = 1700;
+            if (nextPos.y > 1200)
+                display_sprites.kill(i);
+
+            display_sprites.setPos(i, nextPos);
         }
     }
 
@@ -309,9 +312,7 @@
         //context.drawImage(bg_image,0,0, 1200, 800);
 
 
-        
-
-
+    
 
 
         context.fillStyle = "rgba(0,0,100,0.1)";
@@ -321,13 +322,12 @@
 
 
 
-        if (currentText<text_animation.length) {
+        if (currentText<currentTextData.length) {
 
-            display_sprites.setSize(text_animation[currentText]["size"]);
-            
-            var c = text_animation[currentText]["text"][currentChar];
+            display_sprites.setSize(currentTextData[currentText]["size"]);
+            var c = currentTextData[currentText]["text"][currentChar];
 
-            if (frameCount%text_animation[currentText]["speed"]==0) {
+            if (frameCount%currentTextData[currentText]["speed"]==0) {
                 if (c==escape) 
                     display_sprites.hitReturn();
                 else if (c==reset) 
@@ -335,19 +335,19 @@
                 else {
                     display_sprites.addChar(c);
                     var action = "";
-                    if (text_animation[currentText].click) {
-                        action = text_animation[currentText].click;
+                    if (currentTextData[currentText].click) {
+                        action = currentTextData[currentText].click;
                     }
                     particle_data.push({f: {x:Math.random()*0.2-0.1, y:Math.random()*0.2+1}, 
                                         v: {x:0, y:0}, 
-                                        d:spriteCnt,
-                                        move:text_animation[currentText]["move"],
+                                        d:Math.random()*20,
+                                        move:currentTextData[currentText]["move"],
                                         click:action});
                 }
                 spriteCnt += 1;
                 currentChar+=1;
             }
-            if (currentChar==text_animation[currentText]["text"].length) {
+            if (currentChar==currentTextData[currentText]["text"].length) {
                 currentChar = 0;
                 currentText += 1;
             }

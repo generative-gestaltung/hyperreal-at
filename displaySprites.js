@@ -112,7 +112,7 @@
 
         this.sprites = [];
         this.texts = [];
-        this.N = N;
+        this.N = 0;
         this.currentX = 0;
         this.currentY = 0;
         this.currentSize = 10;
@@ -142,10 +142,31 @@
         this.currentSize = s;
     }
 
+    Display_Sprites.prototype.kill = function (i) {
+
+    }
+    
     Display_Sprites.prototype.addChar = function (c) {
+            this.N += 1;
             this.sprites.push (new Sprite(c, this.currentX, this.currentY, this.currentSize));
             this.currentX += this.currentSize;
+            if (this.currentX > 750) 
+                this.hitReturn();
     }
+
+    Display_Sprites.prototype.getData = function (i) {
+        return this.sprites[i];
+    }
+
+    Display_Sprites.prototype.getPos = function (i) {
+        return this.sprites[i].pos;
+    }
+
+    Display_Sprites.prototype.setPos = function (i, pos) {
+        this.sprites[i].pos.x = pos.x;
+        this.sprites[i].pos.y = pos.y;
+    }
+
 
     var _cnt = 0;
     Display_Sprites.prototype.draw = function () {
