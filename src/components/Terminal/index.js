@@ -74,7 +74,7 @@ export default class Terminal extends React.Component {
          <Col><h3><TypeWriter ref="writer0" interval={10} content={content[0].text} onFinish={()=>{this.triggerNextWriter()}}/></h3></Col>
          <Col><TypeWriter ref="writer1" interval={10} content={content[1].text} onFinish={()=>{this.triggerNextWriter()}}/></Col>
          <Col><TypeWriter ref="writer2" interval={10} content={content[2].text} onFinish={()=>{this.triggerNextWriter()}}/></Col>
-         <Col><TypeWriter ref="writer3" interval={10} content={content[3].text} onFinish={()=>{this.triggerNextWriter()}}/></Col>
+         <Col><h4><TypeWriter ref="writer3" interval={10} content={content[3].text} onFinish={()=>{this.triggerNextWriter()}}/></h4></Col>
          <Col><TypeWriter ref="writer4" interval={10} content={content[4].text}onFinish={()=>{this.triggerNextWriter()}}/></Col>
          <Col><TypeWriter ref="writer5" interval={10} content={content[5].text}onFinish={()=>{this.triggerNextWriter()}}/></Col>
          <Col><TypeWriter ref="writer6" interval={10} content={content[6].text}onFinish={()=>{this.triggerNextWriter()}}/></Col>
