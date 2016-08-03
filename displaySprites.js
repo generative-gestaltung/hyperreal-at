@@ -36,7 +36,6 @@
            'm', 'n', 'o', 'p', 'q', 'r',
            's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     }
-    console.log(atlas0.dX);
 
     var atlas1 = {
         img: img1,
@@ -74,7 +73,7 @@
         return {x:ind%theAtlas.imgCols, y:yy+os, dX: theAtlas.dX, dY: theAtlas.dY};
     }
 
-    var Sprite = function (c, theX=0, theY=0, size=1) {
+    var Sprite = function (c, theX, theY, size) {
         this.c = c;
         this.size = size;
         this.pos = {x:theX, y:theY};
@@ -119,7 +118,7 @@
         this.currentSize = 10;
     }
 
-    Display_Sprites.prototype.addText = function (text, xo=0, yo=0, size=defaultSize) {
+    Display_Sprites.prototype.addText = function (text, xo, yo, size) {
 
         for (var i=0; i<text.length; i++) {
             c = text[i];

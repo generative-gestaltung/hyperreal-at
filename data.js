@@ -41,7 +41,7 @@ var text_animation = [
         {"text": "!!location!"+
                   " inselstr 13 10179 berlin"+
                   "!!!schedule!"+
-                  " conference...................19-21 aug 16h!"+
+                  " exhibition...................19-21 aug 16h!"+
                   " seminar.........................on request!",
          "size": 20,
          "speed" : 1,
@@ -64,7 +64,7 @@ var text_animation = [
          "move":false
         },
 
-        {"text" : "!!!!audiovisual content by!",
+        {"text" : "!!!!featured audiovisual content!",
          "size" : 20,
          "speed" : 4,
          "move":true
@@ -76,11 +76,13 @@ var text_animation = [
          "move":true
         },
 
-        {"text" : "............................rockford kabine!",
+
+        {"text" : "..............................thomas eikrem!",
          "size" : 20,
          "speed" : 1,
          "move":true
-        },
+        },        
+
 
         {"text" : " ",
          "size" : 20,
@@ -88,7 +90,7 @@ var text_animation = [
          "move":true
         },
 
-        {"text" : "..............................thomas eikrem!",
+        {"text" : "............................rockford kabine!",
          "size" : 20,
          "speed" : 1,
          "move":true
@@ -119,14 +121,13 @@ var text_animation = [
          "move":false
         },
 
-
-        {"text": "salon-elegance film rage magazine obey!lowdown magazine",
+        {"text": "!!!!salon-elegance film rage magazine obey!lowdown magazine",
          "size": 15,
          "speed" : 3,
          "move":true,
          "click":"vla"},
 
-  
+  /*
         {"text" : "#!teaser",
          "size" : 40,
          "speed" : 1,
