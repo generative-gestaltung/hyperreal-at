@@ -83,7 +83,7 @@ export default class TypeWriter extends React.Component {
   }
 
   render() {
-    let cursorNode,dummy;
+    let cursorNode = "",dummy;
     const {content} = this.props
     const {cursor} = this.state
     if(!this.state.finished && this.state.run && cursor){
@@ -96,7 +96,7 @@ export default class TypeWriter extends React.Component {
     return (
       <span className={styles.writer}>
         {dummy}
-        <span ref="content" className={styles.content}>{this.state.content}{cursorNode}</span>
+        <span ref="content" className={styles.content} dangerouslySetInnerHTML={{__html:`${this.state.content} ${cursorNode}`}}/>
       </span>
     );
   }

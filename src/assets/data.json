@@ -114,31 +114,31 @@
      "move":false
     },
     {
-     "text": "www.hyperreal.at",
+     "text": "<a href='www.hyperreal.at'>hyperreal.at</a>",
      "size": 15,
      "speed" : 1,
      "move":false
     },
     {
-     "text": "www.rockfordkabine.com",
+     "text": "<a href='http://www.rockfordkabine.com'>rockfordkabine.com</a>",
      "size": 15,
      "speed" : 1,
      "move":false
     },
     {
-     "text": "www.salonelegancerecordings.com",
+     "text": "<a href='http://www.salonelegancerecordings.com'>salonelegancerecordings.com</a>",
      "size": 15,
      "speed" : 1,
      "move":false
     },
     {
-     "text": "http://www.filmrage.co.uk/",
+     "text": "<a href='http://www.filmrage.co.uk/'>filmrage.co.uk</a>",
      "size": 15,
      "speed" : 1,
      "move":false
     },
     {
-     "text": "http://silverferox.blogspot.de/!",
+     "text": "<a href='http://silverferox.blogspot.de/'>silverferox.blogspot.de</a>",
      "size": 15,
      "speed" : 1,
      "move":false

@@ -69,7 +69,6 @@ export default class Terminal extends React.Component {
     const buttonClass = classnames(styles.button,{hide: run});
     return (
       <Row className={styles.container}>
-        <div className={buttonClass} onMouseDown={()=>{this.start()}} > start </div>
         <div className={terminalClass}>
         <div className="content">
          <Col><h3><TypeWriter ref="writer0" interval={10} content={content[0].text} onFinish={()=>{this.triggerNextWriter()}}/></h3></Col>
@@ -83,6 +82,7 @@ export default class Terminal extends React.Component {
          <Col><TypeWriter ref="writer8" interval={10} content={content[8].text}onFinish={()=>{this.triggerNextWriter()}}/></Col>
         </div>
         </div>
+        <div className={buttonClass} onMouseDown={()=>{this.start()}} > start </div>
       </Row>
     );
   }

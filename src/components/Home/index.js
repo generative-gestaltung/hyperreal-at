@@ -60,11 +60,7 @@ export default class Home extends React.Component {
     }else{
       let terminal;
       if(finished){
-        terminal = <Row>
-                      <Col xs={12}>
-                        <Terminal content={json.page2}/>
-                      </Col>
-                    </Row>
+        terminal =<Terminal content={json.page2}/>
       }
 
     return (
