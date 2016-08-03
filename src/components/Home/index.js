@@ -75,7 +75,7 @@ export default class Home extends React.Component {
                   
               </Col>
               <Col xs={8} className="right">
-                <TypeWriter ref="writer1" 
+                <TypeWriter ref="writer1" dummy
                             onFinish={()=>{this.next()}}
                             content={json.page1[1].text}/>          
               </Col>
@@ -87,7 +87,7 @@ export default class Home extends React.Component {
                             content={json.page1[2].text}/>   
               </Col>
               <Col xs={8} className="right">
-                  <TypeWriter ref="writer3" 
+                  <TypeWriter ref="writer3" dummy
                             onFinish={()=>{this.next()}}
                             content={json.page1[3].text}/>   
               </Col>
@@ -95,7 +95,7 @@ export default class Home extends React.Component {
             <Row  className="flex">
               <Col xs={12} className="center">
                 <h1>
-                  <TypeWriter ref="writer4" 
+                  <TypeWriter ref="writer4" dummy
                               onFinish={()=>{this.next()}}
                               content={json.page1[4].text}/>
                 </h1>
@@ -108,7 +108,7 @@ export default class Home extends React.Component {
                             content={json.page1[5].text}/>   
               </Col>
               <Col xs={8} className="right">
-                <TypeWriter ref="writer6" 
+                <TypeWriter ref="writer6" dummy
                             onFinish={()=>{this.next()}}
                             content={json.page1[6].text}/>   
               </Col>
@@ -120,14 +120,14 @@ export default class Home extends React.Component {
                               content={json.page1[7].text}/>   
               </Col>
               <Col xs={8}  className="right">
-                <TypeWriter ref="writer8" 
+                <TypeWriter ref="writer8" dummy
                               onFinish={()=>{this.next()}}
                               content={json.page1[8].text}/>   
               </Col>
               <Col xs={4}>  
               </Col>
               <Col xs={8} className="right">
-                  <TypeWriter ref="writer9" 
+                  <TypeWriter ref="writer9" dummy
                               onFinish={()=>{this.next()}}
                               content={json.page1[9].text}/>  
               </Col>
@@ -142,26 +142,26 @@ export default class Home extends React.Component {
             <Row  className="featured">
               <Col xs={12} className="center">
                 <h2>
-                  <TypeWriter ref="writer11"  
+                  <TypeWriter ref="writer11"  dummy
                               onFinish={()=>{this.next()}}
                               content={json.page1[11].text}/> 
                 </h2>
               </Col>
             </Row>
             <Row>
-              <Col xs={4}>
+              <Col xs={6}>
                 <TypeWriter ref="writer12" 
                               onFinish={()=>{this.next()}}
                               content={json.page1[12].text}/>  
               </Col>
-              <Col xs={8} className="right">
-                  <TypeWriter ref="writer13" 
+              <Col xs={6} className="right">
+                  <TypeWriter ref="writer13" dummy
                               onFinish={()=>{this.next()}}
                               content={json.page1[13].text}/>  
               </Col>
-              <Col xs={4}/>
-              <Col xs={8} className="right">
-                  <TypeWriter ref="writer14" 
+              <Col xs={6}/>
+              <Col xs={6} className="right">
+                  <TypeWriter ref="writer14" dummy 
                               onFinish={()=>{this.next()}}
                               content={json.page1[14].text}/>  
               </Col>

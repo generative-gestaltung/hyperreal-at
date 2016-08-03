@@ -40,10 +40,12 @@ export default class TypeWriter extends React.Component {
   componentDidMount() {
     let thisDOMNode = ReactDOM.findDOMNode(this);
     let text = this.props.content;
-    const {shorten} = this.props;
-    const dummy = this.refs.dummy;
+    const {shorten,dummy} = this.props;
+    const dummyNode = this.refs.dummy;
     const content = this.refs.content;
-    content.style.minWidth = `${dummy.clientWidth - (shorten ? 20 : 0)}px`;
+    if(dummy){
+      content.style.minWidth = `${dummyNode.clientWidth - (shorten ? 20 : 0)}px`;   
+    }
     const {run} = this.state;
     if(run){
       this.type(text,0);
@@ -84,19 +86,19 @@ export default class TypeWriter extends React.Component {
   }
 
   render() {
-    let cursorNode = "",dummy;
-    const {content} = this.props
+    let cursorNode = "", dummyNode;
+    const {content,dummy} = this.props
     const {cursor} = this.state
     if(!this.state.finished && this.state.run && cursor){
       cursorNode = <span className={styles.cursor}>|</span>
     }
-    if(!this.state.finished){
-      dummy = <span ref="dummy" className={styles.dummy}>{content}</span>
+    if(!this.state.finished && dummy){
+      dummyNode = <span ref="dummy" className={styles.dummy}>{content}</span>
     }
 
     return (
       <span className={styles.writer}>
-        {dummy}
+        {dummyNode}
         <span ref="content" className={styles.content} dangerouslySetInnerHTML={{__html:`${this.state.content} ${cursorNode}`}}/>
       </span>
     );
@@ -107,5 +109,6 @@ TypeWriter.defaultProps = {
   run: false,
   cursor:false,
   interval:50,
+  dummy:false,
 }
 
