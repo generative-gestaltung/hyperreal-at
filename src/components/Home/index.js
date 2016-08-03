@@ -20,6 +20,7 @@ export default class Home extends React.Component {
     super(props);
     this.state={
       current:0,
+      finished: false,
     }
   }
 
@@ -30,13 +31,20 @@ export default class Home extends React.Component {
     if(typeof nextWriter != 'undefined'){
       nextWriter.start();
     }
+    let finished = false;
+    if(next == 15){
+      finished = true;
+    }
     this.setState({
       current: next,
+      finished:finished
+
     })
   }
   
   render() {
-    const {json,isLoading} = this.props;    
+    const {json,isLoading} = this.props;
+    const {finished} = this.state;    
     if(isLoading){
       return (
         <div>
@@ -50,6 +58,15 @@ export default class Home extends React.Component {
         </div>
       )
     }else{
+      let terminal;
+      if(finished){
+        terminal = <Row>
+                      <Col xs={12}>
+                        <Terminal content={json.page2}/>
+                      </Col>
+                    </Row>
+      }
+
     return (
         <div className={styles.page}>
           <Grid>
@@ -153,11 +170,7 @@ export default class Home extends React.Component {
                               content={json.page1[14].text}/>  
               </Col>
             </Row>
-            <Row>
-              <Col xs={12}>
-                <Terminal content={json.page2}/>
-              </Col>
-            </Row>
+              {terminal}
           </Grid>
 
         </div>

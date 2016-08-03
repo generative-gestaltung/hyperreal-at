@@ -35,15 +35,12 @@ export default class Terminal extends React.Component {
   }
 
   triggerNextWriter(){
-        console.log("nextWRiter");
-
     const {currentWriter} = this.state;
     const next = currentWriter+1;
     const nextWriter = this.refs[`writer${next}`];
     if(typeof nextWriter != 'undefined'){
       nextWriter.start();
     }
-    console.log(next);
     this.setState({
       currentWriter: next,
     })
@@ -71,11 +68,10 @@ export default class Terminal extends React.Component {
     const terminalClass = classnames(styles.terminal,{run: run});
     const buttonClass = classnames(styles.button,{hide: run});
     return (
-      <div className={styles.container}>
+      <Row className={styles.container}>
         <div className={buttonClass} onMouseDown={()=>{this.start()}} > start </div>
         <div className={terminalClass}>
         <div className="content">
-          <Row>
          <Col><h3><TypeWriter ref="writer0" interval={10} content={content[0].text} onFinish={()=>{this.triggerNextWriter()}}/></h3></Col>
          <Col><TypeWriter ref="writer1" interval={10} content={content[1].text} onFinish={()=>{this.triggerNextWriter()}}/></Col>
          <Col><TypeWriter ref="writer2" interval={10} content={content[2].text} onFinish={()=>{this.triggerNextWriter()}}/></Col>
@@ -84,11 +80,10 @@ export default class Terminal extends React.Component {
          <Col><TypeWriter ref="writer5" interval={10} content={content[5].text}onFinish={()=>{this.triggerNextWriter()}}/></Col>
          <Col><TypeWriter ref="writer6" interval={10} content={content[6].text}onFinish={()=>{this.triggerNextWriter()}}/></Col>
          <Col><TypeWriter ref="writer7" interval={10} content={content[7].text}onFinish={()=>{this.triggerNextWriter()}}/></Col>
-          <Col><TypeWriter ref="writer8" interval={10} content={content[8].text}onFinish={()=>{this.triggerNextWriter()}}/></Col>
-          </Row>
+         <Col><TypeWriter ref="writer8" interval={10} content={content[8].text}onFinish={()=>{this.triggerNextWriter()}}/></Col>
         </div>
         </div>
-      </div>
+      </Row>
     );
   }
 };
