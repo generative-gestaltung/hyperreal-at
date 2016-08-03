@@ -13,6 +13,7 @@ export default class TypeWriter extends React.Component {
       ...props,
       current:0,
       img: props.images[0],
+      fps: 30,
     };
   }
 
@@ -24,13 +25,14 @@ export default class TypeWriter extends React.Component {
   }
 
   componentDidMount() {
-    const {run,current} = this.state;
+    const {run,fps} = this.state;
     const {images} = this.props;
     if(run){
-      const interval = 1000/60;
+      const interval = 1000/fps;
       setInterval(()=>{
+        const current = this.state.current;
         let next = current+1;
-        if(next > images.length){
+        if(next > images.length-1){
           next = 0;
         }
         this.setState({
@@ -41,8 +43,6 @@ export default class TypeWriter extends React.Component {
     }
   }
 
-
-
   componentWillUnmount() {
   }
 
@@ -50,7 +50,7 @@ export default class TypeWriter extends React.Component {
   render() {
     const {img} = this.state;
     return(
-      <img src={img}/>
+      <div className={styles.img} style={{backgroundImage:`url(${img})`}}/>
     )
   }
 };
