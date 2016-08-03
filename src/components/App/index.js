@@ -28,7 +28,15 @@ const images = [
   require('../../assets/vid/jpg/img18.jpg'),
   require('../../assets/vid/jpg/img19.jpg'),
   require('../../assets/vid/jpg/img20.jpg'),
-
+  require('../../assets/vid/jpg/img21.jpg'),
+  require('../../assets/vid/jpg/img22.jpg'),
+  require('../../assets/vid/jpg/img23.jpg'),
+  require('../../assets/vid/jpg/img24.jpg'),
+  require('../../assets/vid/jpg/img25.jpg'),
+  require('../../assets/vid/jpg/img26.jpg'),
+  require('../../assets/vid/jpg/img27.jpg'),
+  require('../../assets/vid/jpg/img28.jpg'),
+  require('../../assets/vid/jpg/img29.jpg'),
 ]
 
 export default class App extends Component{

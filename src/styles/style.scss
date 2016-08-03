@@ -18,16 +18,12 @@ body{
   margin-top: 4em;
 }
 
-@media #{$phone-portrait, $phone-landscape, $tiny}{
-  body{
-    font-size: 14px;
-  }
+h1{
+  font-size: 4em;
 }
 
-@media #{$pad-portrait, $pad-landscape}{
-  body{
-    font-size: 15px;
-  }
+h2{
+  font-size: 3em;
 }
 
 .center{
@@ -38,11 +34,21 @@ body{
   text-align: right;
 }
 
-h1{
-  font-size: 4em;
+
+@media #{$phone-portrait, $phone-landscape, $tiny}{
+  body{
+    font-size: 14px;
+  }
+  h1{
+    font-size: 3.5em;
+  }
 }
 
-h2{
-  font-size: 3em;
+@media #{$pad-portrait, $pad-landscape}{
+  body{
+    font-size: 15px;
+  }
 }
+
+
 

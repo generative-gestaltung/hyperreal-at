@@ -13,6 +13,8 @@ export default class TypeWriter extends React.Component {
       finished: 0,
       run: props.run,
       content:"",
+      interval: props.interval,
+      cursor:  props.cursor,
     };
 
     this.type = this.type.bind(this);
@@ -57,11 +59,11 @@ export default class TypeWriter extends React.Component {
       let currentLetter = currentText[n];
 
       if(currentLetter == "<"){
-        TypeWriter.interval = 0;
+        this.state.interval = 0;
       }
 
-      if(TypeWriter.interval == 0 && currentLetter == ">"){
-        TypeWriter.interval = 50;
+      if(this.state.interval == 0 && currentLetter == ">"){
+        this.state.interval = 50;
       }
 
       const content = this.refs.content;
@@ -72,7 +74,7 @@ export default class TypeWriter extends React.Component {
       n++;
       setTimeout(function() {
         this.type(text, n)
-      }.bind(this), TypeWriter.interval);
+      }.bind(this), this.state.interval);
     }
     else{
       this.props.onFinish();
@@ -81,10 +83,11 @@ export default class TypeWriter extends React.Component {
   }
 
   render() {
-    let cursor,dummy;
+    let cursorNode,dummy;
     const {content} = this.props
-    if(!this.state.finished && this.state.run){
-      cursor = <span className={styles.cursor}>|</span>
+    const {cursor} = this.state
+    if(!this.state.finished && this.state.run && cursor){
+      cursorNode = <span className={styles.cursor}>|</span>
     }
     if(!this.state.finished){
       dummy = <span ref="dummy" className={styles.dummy}>{content}</span>
@@ -93,7 +96,7 @@ export default class TypeWriter extends React.Component {
     return (
       <span className={styles.writer}>
         {dummy}
-        <span ref="content" className={styles.content}>{this.state.content}</span>
+        <span ref="content" className={styles.content}>{this.state.content}{cursorNode}</span>
       </span>
     );
   }
@@ -101,6 +104,7 @@ export default class TypeWriter extends React.Component {
 
 TypeWriter.defaultProps = {
   run: false,
+  cursor:false,
+  interval:50,
 }
 
-TypeWriter.interval = 50;  

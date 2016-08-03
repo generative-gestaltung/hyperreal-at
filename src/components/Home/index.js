@@ -13,7 +13,7 @@ import JSONPretty from 'react-json-pretty';
 import {Grid, Row, Col} from 'react-bootstrap';
 
 import TypeWriter from '../TypeWriter';
-
+import Terminal from '../Terminal';
 
 export default class Home extends React.Component {
   constructor(props){
@@ -51,9 +51,9 @@ export default class Home extends React.Component {
       )
     }else{
     return (
-        <div>
+        <div className={styles.page}>
           <Grid>
-            <Row>
+            <Row className="abstract">
               <Col xs={4}>
                 <TypeWriter ref="writer0" 
                             run 
@@ -67,7 +67,7 @@ export default class Home extends React.Component {
                             content={json.page1[1].text}/>          
               </Col>
             </Row>
-            <Row>
+            <Row  className="category">
               <Col xs={4}> 
                 <TypeWriter ref="writer2" 
                             onFinish={()=>{this.next()}}
@@ -79,7 +79,7 @@ export default class Home extends React.Component {
                             content={json.page1[3].text}/>   
               </Col>
             </Row>
-            <Row>
+            <Row  className="flex">
               <Col xs={12} className="center">
                 <h1>
                   <TypeWriter ref="writer4" 
@@ -88,7 +88,7 @@ export default class Home extends React.Component {
                 </h1>
               </Col>
             </Row>
-            <Row>
+            <Row className="location">
               <Col xs={4}>
               <TypeWriter ref="writer5" 
                             onFinish={()=>{this.next()}}
@@ -100,31 +100,33 @@ export default class Home extends React.Component {
                             content={json.page1[6].text}/>   
               </Col>
             </Row>
-            <Row>
-              <Col xs={12}>
+            <Row  className="schedule">
+              <Col xs={4}>
                 <TypeWriter ref="writer7" 
                               onFinish={()=>{this.next()}}
                               content={json.page1[7].text}/>   
               </Col>
-              <Col xs={12}>
+              <Col xs={8}  className="right">
                 <TypeWriter ref="writer8" 
                               onFinish={()=>{this.next()}}
                               content={json.page1[8].text}/>   
               </Col>
-              <Col xs={12}>
+              <Col xs={4}>  
+              </Col>
+              <Col xs={8} className="right">
                   <TypeWriter ref="writer9" 
                               onFinish={()=>{this.next()}}
                               content={json.page1[9].text}/>  
               </Col>
             </Row>
-            <Row>
+            <Row  className="hyper">
               <Col xs={12}>
                   <TypeWriter ref="writer10" 
                               onFinish={()=>{this.next()}}
                               content={json.page1[10].text}/>  
               </Col>
             </Row>
-            <Row>
+            <Row  className="featured">
               <Col xs={12} className="center">
                 <h2>
                   <TypeWriter ref="writer11"  
@@ -134,23 +136,30 @@ export default class Home extends React.Component {
               </Col>
             </Row>
             <Row>
-              <Col xs={12}>
+              <Col xs={4}>
                 <TypeWriter ref="writer12" 
                               onFinish={()=>{this.next()}}
                               content={json.page1[12].text}/>  
               </Col>
-              <Col xs={12}>
+              <Col xs={8} className="right">
                   <TypeWriter ref="writer13" 
                               onFinish={()=>{this.next()}}
                               content={json.page1[13].text}/>  
               </Col>
-              <Col xs={12}>
+              <Col xs={4}/>
+              <Col xs={8} className="right">
                   <TypeWriter ref="writer14" 
                               onFinish={()=>{this.next()}}
                               content={json.page1[14].text}/>  
               </Col>
             </Row>
+            <Row>
+              <Col xs={12}>
+                <Terminal content={json.page2}/>
+              </Col>
+            </Row>
           </Grid>
+
         </div>
       );
     }

@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 
 import styles from './style.scss'
 
-export default class TypeWriter extends React.Component {
+export default class BackgroundAnimation extends React.Component {
 
   constructor(props) {
     super(props);
@@ -54,9 +54,3 @@ export default class TypeWriter extends React.Component {
     )
   }
 };
-
-TypeWriter.defaultProps = {
-  run: false,
-}
-
-TypeWriter.interval = 50;  
