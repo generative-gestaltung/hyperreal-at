@@ -1,0 +1,147 @@
+{
+  "page1":[
+  {
+   "text":"abstract:",
+   "size": 20,
+   "speed" : 1,
+   "move":true
+  },
+  {
+   "text":"time based midi art",
+   "size": 20,
+   "speed" : 1,
+   "move":true
+  },
+  {
+   "text":"category:",
+   "size": 20,
+   "speed" : 1,
+   "move":true
+  },
+  {
+   "text":"mobile audience interaction",
+   "size": 20,
+   "speed" : 1,
+   "move":true
+  },
+  {
+   "text": "flex response",
+   "size": 46,
+   "speed" : 1,
+   "move":true
+  },
+  {
+    "text": "location:",
+    "size": 20,
+    "speed" : 1,
+    "move":true
+  },
+  {
+    "text": "inselstr 13 10179 berlin",
+    "size": 20,
+    "speed" : 1,
+    "move":true
+  },
+  {
+   "text": "schedule:",
+   "size": 20,
+   "speed" : 1,
+   "move":true
+  },
+  {
+   "text": "exhibition...................19-21 aug 16h",
+   "size": 20,
+   "speed" : 1,
+   "move":true
+  },
+  {
+   "text": "seminar.........................on request",
+   "size": 20,
+   "speed" : 1,
+   "move":true
+  },
+  {
+   "text": "electric and mechanical landscape",
+   "size": 20,
+   "speed" : 4,
+   "move":true
+  },
+  {"text" : "hyperreal",
+   "size" : 40,
+   "speed" : 1,
+   "move":false
+  },
+  {"text" : "featured audiovisual content",
+   "size" : 20,
+   "speed" : 4,
+   "move":true
+  },
+  {
+   "text" : "..............................thomas eikrem",
+   "size" : 20,
+   "speed" : 1,
+   "move":true
+  },
+  {
+   "text" : "............................rockford kabine",
+   "size" : 20,
+   "speed" : 1,
+   "move":true
+  }
+],
+  "page2":[
+    {
+      "text": "FLEX RESPONSE",
+      "size" : 25,
+      "speed" : 10,
+      "move": true
+    },
+    {
+     "text": "Eine Bestandsaufnahme der zeitbasierten Medienkunst.",
+     "size": 15,
+     "speed" : 1,
+     "move":false
+    },
+     {"text": "Der OBEY-Space Berlin bietet der Realisationsgruppe HYPERREAL eine Testfläche für raumgreifende Dialogsituationen. Die Ausstellung präsentiert unter der Leitung von Programmier- und MIDI-Avantgardist Max Göttner die Exponate VIM-1 und KIM-1 und unterrichtet in diesem   Zusammenschluß aus Technologie, Wissenschaft, Film, Musik und Hochfinanz im ersten Seminar über den Status Quo der interaktiven, kinetischen, visuellen, akustischen und kontroversen Informationsenergie. Eine Konzentration wesentlicher Werkkomplexe der Super 8mm-Serie von FILMRAGE-Herausgeber Thomas Eikrem mit unterstützender analoger Klangkunstuntermalung von ROCKFORD KABINE und DJ PORSCHE 9/11 verdichten den Eindruck eines universellen Erlebnisses im elektrischen Bewusstsein des Strebens, des Triebes und der Furcht. Göttners Ansatz ist in seiner großen Vielfalt stets sparten- und medienübergreifend, sein zentrales Schaffen ein nie endender Kommentar über die Welt.",
+     "size": 15,
+     "speed" : 1,
+     "move":false
+    },
+    {
+     "text": "19.08. - 21.08.2016     10179 Berlin     Inselstrasse 13",
+     "size": 15,
+     "speed" : 1,
+     "move":false
+    },
+    {
+     "text": "www.hyperreal.at",
+     "size": 15,
+     "speed" : 1,
+     "move":false
+    },
+    {
+     "text": "www.rockfordkabine.com",
+     "size": 15,
+     "speed" : 1,
+     "move":false
+    },
+    {
+     "text": "www.salonelegancerecordings.com",
+     "size": 15,
+     "speed" : 1,
+     "move":false
+    },
+    {
+     "text": "http://www.filmrage.co.uk/",
+     "size": 15,
+     "speed" : 1,
+     "move":false
+    },
+    {
+     "text": "http://silverferox.blogspot.de/!",
+     "size": 15,
+     "speed" : 1,
+     "move":false
+    }
+  ]
+}
