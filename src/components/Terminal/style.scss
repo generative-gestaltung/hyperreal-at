@@ -1,27 +1,18 @@
 :local(.container){
-  width:100%;
-  height:500px;
-  display:block;
   text-align:center;
-  position:relative;
   margin: 4em 0 0 0;
 }
 
 :local(.terminal){
   background-color:blue;
-  display:block;
-  position:absolute;
-  width:100%;
-  height:0%;
-  top:50%;
-  transition: height ease-in-out 0.5s, top ease-in-out 0.5s;
+  height:0px;
+  transform:translate(0px,250px);
+  transition: height ease-in-out 0.5s, translate ease-in-out 0.5s;
+  text-align: left;
   &.run{
-    height:100%;
-    top:0%;
-    .content{
-      text-align: left;
-      width: 90%;
-    }
+    height:500px;
+    transform:translate(0,0px);
+
   }
   a{
     color:white;
@@ -39,14 +30,8 @@
   border: 2px solid white;
   text-align: center;
   padding: 10px;
-  display:inline-block;
-  width:100px;
-  height:40px;
-  position:absolute;
-  top:50%;
-  left:50%;
-  margin-top:-20px;
-  margin-left:-50px;
+  position: relative;
+  display: inline-block;
   &.hide{
     display: none;
   }

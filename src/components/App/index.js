@@ -52,7 +52,7 @@ export default class App extends Component{
   render(){
     return (
       <div>
-      <BackgroundAnimation run images={images}/>
+      <BackgroundAnimation  images={images}/>
       {this.props.children}
       </div>
     )

@@ -40,9 +40,10 @@ export default class TypeWriter extends React.Component {
   componentDidMount() {
     let thisDOMNode = ReactDOM.findDOMNode(this);
     let text = this.props.content;
+    const {shorten} = this.props;
     const dummy = this.refs.dummy;
     const content = this.refs.content;
-    content.style.width = `${dummy.clientWidth + 20}px`;
+    content.style.minWidth = `${dummy.clientWidth - (shorten ? 20 : 0)}px`;
     const {run} = this.state;
     if(run){
       this.type(text,0);
